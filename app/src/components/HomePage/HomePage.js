@@ -2,14 +2,12 @@
 
 const HomePage = () => {
     return(
-        <div className="App">
-      
-            <header className="App-header">
+        <div className="Home">
+            <header className="Home-header">
                 <p>
-                Welcome friend!
+                    Welcome friend!
                 </p>
             </header>
-
         </div>
     )
 }
