@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-// import './NavBar.scss';
+import './NavBar.scss';
 
 const NavBar = () => {
     const navigate = useNavigate();
@@ -24,6 +24,7 @@ const NavBar = () => {
                     alt={"logo"}/>
             </div> */}
             <div className = 'nav-bar__links-div'>
+                <div className = 'nav-bar__link' onClick={() => { navigate("/")}} > Home </div>
                 <div className = 'nav-bar__link' onClick={() => { navigate("/search")}} > Search </div>
                 <div className = 'nav-bar__link'onClick={() => { navigate("/recipe")}}> Recipe </div>
             </div>
