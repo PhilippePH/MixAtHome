@@ -41,7 +41,7 @@ const InventoryPage = () => {
 
   return (
     <div className="Search">
-      <h1 className='text-center mt-5'> Search here </h1>
+      <h1 className='text-center mt-5'> Inventory </h1>
       <table class="table mt-5 text-center">
         <thead>
           <tr>

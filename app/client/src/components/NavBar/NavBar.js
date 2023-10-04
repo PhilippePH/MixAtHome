@@ -28,6 +28,7 @@ const NavBar = () => {
                 <div className = 'nav-bar__link' onClick={() => { navigate("/search")}} > Search </div>
                 <div className = 'nav-bar__link'onClick={() => { navigate("/recipe")}}> Recipe </div>
                 <div className = 'nav-bar__link'onClick={() => { navigate("/inventory")}}> Inventory </div>
+                <div className = 'nav-bar__link'onClick={() => { navigate("/feasible_cocktails")}}> Feasible Cocktails </div>
             </div>
         </div>
     )

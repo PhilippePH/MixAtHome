@@ -9,7 +9,7 @@ function cocktailRoutes(app) {
     try{
       const {name} = req.body
       const newCocktail = await pool.query(
-        'INSERT INTO cocktail_list(name) VALUES($1) RETURNING *',
+        'INSERT INTO cocktails(name) VALUES($1) RETURNING *',
         [name]
       )
       
@@ -21,7 +21,7 @@ function cocktailRoutes(app) {
 
   app.get('/cocktails', async(req, res) => {
     try{
-      const allCocktails = await pool.query("SELECT * FROM cocktail_list")
+      const allCocktails = await pool.query("SELECT * FROM cocktails")
       res.json(allCocktails.rows)
     } catch (err) {
       console.error(err.message)
@@ -32,7 +32,7 @@ function cocktailRoutes(app) {
     try{
       const {id} = req.params
       const cocktail = await pool.query(
-        "SELECT * FROM cocktail_list WHERE id = $1",
+        "SELECT * FROM cocktails WHERE id = $1",
         [id]
       )
       res.json(cocktail.rows[0])
@@ -47,7 +47,7 @@ function cocktailRoutes(app) {
       const { id } = req.params
       const { name } = req.body
       const updateCocktail = await pool.query(
-        "UPDATE cocktail_list SET name = $1 WHERE id = $2",
+        "UPDATE cocktails SET name = $1 WHERE id = $2",
         [name, id]
         )
 
@@ -62,7 +62,7 @@ function cocktailRoutes(app) {
     try{
       const { id } = req.params
       const deleteCocktail = await pool.query(
-        "DELETE FROM cocktail_list WHERE id = $1",
+        "DELETE FROM cocktails WHERE id = $1",
         [id])
 
       res.json("Cocktail was deleted")
