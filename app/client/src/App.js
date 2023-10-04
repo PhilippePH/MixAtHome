@@ -4,9 +4,9 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 // Pages
 import HomePage from "./components/HomePage/HomePage";
 import SearchPage from "./components/SearchPage/SearchPage";
-import RecipePage from "./components/RecipePage/RecipePage";
 import InventoryPage from "./components/InventoryPage/InventoryPage";
 import FeasibleCocktails from "./components/FeasibleCocktails/FeasibleCocktails"
+import CocktailPage from "./components/CocktailPage/CocktailPage"
 import NavBar from "./components/NavBar/NavBar";
 
 
@@ -24,9 +24,9 @@ function App() {
           <Routes>
               <Route path="/" element={<HomePage/>} />
               <Route path="/search" element={<SearchPage/>} />
-              <Route path="/recipe" element={<RecipePage/>} />
               <Route path="/inventory" element={<InventoryPage/>} />
               <Route path="/feasible_cocktails" element={<FeasibleCocktails/>} />
+              <Route path="/cocktails/:id" element={<CocktailPage/>} />
           </Routes>
         </Router>
     </Fragment>

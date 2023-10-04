@@ -1,6 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 
 const SearchPage = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/cocktails/${id}`, {replace: true});
+  };
+
   const [cocktails, setCocktails] = useState([])
 
   const getCocktails = async () => {
@@ -30,7 +38,11 @@ const SearchPage = () => {
         <tbody>
           {cocktails.map(cocktail =>(
             <tr key={cocktail.id}>
-              <td>{cocktail.name}</td>
+              <td>
+                <button type="button" class="btn btn-light btn-lg w-100"
+                  onClick={() => handleClick(cocktail.id)}>
+                    {cocktail.name}</button>
+              </td>
             </tr>
           ))}
         </tbody>
