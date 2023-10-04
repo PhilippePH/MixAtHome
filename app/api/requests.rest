@@ -1,9 +1,0 @@
-GET http://localhost:5000/cocktails
-
-###
-
-POST http://localhost:5000/cocktails
-
-{
-  "description": "test"
-}
