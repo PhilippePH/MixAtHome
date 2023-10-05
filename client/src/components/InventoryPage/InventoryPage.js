@@ -27,14 +27,14 @@ const InventoryPage = () => {
 
   const getingredients = async () => {
     try {
-      const in_stock = await fetch("http://localhost:5000/inventory/instock");
+      const in_stock = await fetch("http://localhost:5000/inventory/in-stock");
       const out_of_stock = await fetch("http://localhost:5000/inventory/no-stock");
+      
       const in_stock_json = await in_stock.json();
       const no_stock_json = await out_of_stock.json();
 
       set_in_stock(in_stock_json);
       set_no_stock(no_stock_json);
-      console.log(set_in_stock)
     } catch (err) {
       console.error(err.message);
     }
@@ -47,7 +47,7 @@ const InventoryPage = () => {
   return (
     <div className="Search">
       <h1 className='text-center mt-5'> Inventory </h1>
-      <table class="table mt-5 text-center" In-Stock>
+      <table className="table mt-5 text-center">
         <thead>
           <tr>
             <th>Ingredient</th>
@@ -70,7 +70,7 @@ const InventoryPage = () => {
         </tbody>
       </table>
 
-      <table class="table mt-5 text-center" Not In-Stock>
+      <table className="table mt-5 text-center">
         <thead>
           <tr>
             <th>Ingredient</th>
@@ -84,7 +84,7 @@ const InventoryPage = () => {
               <td>{ingredient.name}</td>
               <td>{ingredient.in_stock ? 'Yes' : 'No'}</td>
               <td>
-                <button class="btn btn-secondary"
+                <button className="btn btn-secondary"
                 onClick={e => changeStockStatus(e, ingredient.id, ingredient.in_stock)}>
                   Change</button>
               </td>

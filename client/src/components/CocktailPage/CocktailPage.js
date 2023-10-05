@@ -28,10 +28,10 @@ const CocktailPage = () => {
   }, []);
 
   return (
-    <Fragment>
-      <h1 class='mt-5'> {cocktail.name} </h1>
+    <div>
+      <h1 className='mt-5'> {cocktail.name} </h1>
       
-      <div class='font-weight-bold'>Ingredients</div>
+      <div className='font-weight-bold'>Ingredients</div>
 
       <div style={{ whiteSpace: 'pre-line' }}>
         <ul>
@@ -56,7 +56,7 @@ const CocktailPage = () => {
       <p>Cocktail Family:</p>
       <p>Similar Cocktails / Variations:</p>
       
-    </Fragment>
+    </div>
   )
 }
 

@@ -13,25 +13,19 @@ import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   return (
-    <Fragment 
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100vh"
-      }}
-    >
-         <Router>
-          <NavBar/>
-          <Routes>
-              <Route path="/" element={<HomePage/>} />
-              <Route path="/search" element={<SearchPage/>} />
-              <Route path="/inventory" element={<InventoryPage/>} />
-              <Route path="/feasible_cocktails" element={<FeasibleCocktails/>} />
-              <Route path="/cocktails/:id" element={<CocktailPage/>} />
-              <Route path="/guides" element={<GuidePage/>} />
-          </Routes>
-        </Router>
-    </Fragment>
+    <div>
+      <Router>
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/search" element={<SearchPage/>} />
+          <Route path="/inventory" element={<InventoryPage/>} />
+          <Route path="/feasible_cocktails" element={<FeasibleCocktails/>} />
+          <Route path="/cocktails/:id" element={<CocktailPage/>} />
+          <Route path="/guides" element={<GuidePage/>} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
