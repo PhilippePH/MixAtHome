@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react'
 
 const InventoryPage = () => {
-  const [ingredients, setingredients] = useState([])
+  const [in_stock, set_in_stock] = useState([])
+  const [no_stock, set_no_stock] = useState([])
 
   const changeStockStatus = async (e, id, in_stock) => {
     console.log(e, id, in_stock)
@@ -16,8 +17,8 @@ const InventoryPage = () => {
           body: JSON.stringify(value)
         }
       );
+      document.location.reload(false) // this keeps the position of the user on the page when reloading
 
-      window.location = "/inventory";
     } catch (err) {
       console.error(err.message)
     }
@@ -26,10 +27,14 @@ const InventoryPage = () => {
 
   const getingredients = async () => {
     try {
-      const response = await fetch("http://localhost:5000/inventory");
-      const jsonData = await response.json();
+      const in_stock = await fetch("http://localhost:5000/inventory/instock");
+      const out_of_stock = await fetch("http://localhost:5000/inventory/no-stock");
+      const in_stock_json = await in_stock.json();
+      const no_stock_json = await out_of_stock.json();
 
-      setingredients(jsonData);
+      set_in_stock(in_stock_json);
+      set_no_stock(no_stock_json);
+      console.log(set_in_stock)
     } catch (err) {
       console.error(err.message);
     }
@@ -42,7 +47,7 @@ const InventoryPage = () => {
   return (
     <div className="Search">
       <h1 className='text-center mt-5'> Inventory </h1>
-      <table class="table mt-5 text-center">
+      <table class="table mt-5 text-center" In-Stock>
         <thead>
           <tr>
             <th>Ingredient</th>
@@ -51,7 +56,30 @@ const InventoryPage = () => {
           </tr>
         </thead>
         <tbody>
-          {ingredients.map(ingredient =>(
+          {in_stock.map(ingredient =>(
+            <tr key={ingredient.id}>
+              <td>{ingredient.name}</td>
+              <td>{ingredient.in_stock ? 'Yes' : 'No'}</td>
+              <td>
+                <button class="btn btn-secondary"
+                onClick={e => changeStockStatus(e, ingredient.id, ingredient.in_stock)}>
+                  Change</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <table class="table mt-5 text-center" Not In-Stock>
+        <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th>In Stock?</th>
+            <th>Change Stock Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {no_stock.map(ingredient =>(
             <tr key={ingredient.id}>
               <td>{ingredient.name}</td>
               <td>{ingredient.in_stock ? 'Yes' : 'No'}</td>

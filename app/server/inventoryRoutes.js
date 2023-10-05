@@ -18,10 +18,19 @@ function inventoryRoutes(app) {
   //     console.error(err.message)
   //   }
   // })
-
-  app.get('/inventory', async(req, res) => {
+  
+  app.get('http://localhost:5000/inventory/instock', async(req, res) => {
     try{
-      const allIngredients = await pool.query("SELECT * FROM inventory ORDER BY name")
+      const allIngredients = await pool.query("SELECT * FROM inventory WHERE in_stock = TRUE ORDER BY name")
+      res.json(allIngredients.rows)
+    } catch (err) {
+      console.error(err.message)
+    }
+  })
+
+  app.get('http://localhost:5000/inventory/no-stock', async(req, res) => {
+    try{
+      const allIngredients = await pool.query("SELECT * FROM inventory WHERE in_stock = FALSE ORDER BY name")
       res.json(allIngredients.rows)
     } catch (err) {
       console.error(err.message)
