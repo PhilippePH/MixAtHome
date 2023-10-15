@@ -28,6 +28,7 @@ const FeasibleCocktails = () => {
 
   return (
     <Fragment className="Feasible Cocktails">
+      <p> make the display more tiles, so that you can see multiple on one line</p>
       <h1 className='text-center mt-5'> Feasible Cocktails </h1>
       <table class="table mt-5 text-center">
         {/* <thead>

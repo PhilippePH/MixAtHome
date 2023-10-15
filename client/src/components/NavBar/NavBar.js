@@ -7,7 +7,7 @@ const NavBar = () => {
     return (
         <div 
             id="navbar-container"
-            className="nav-bar__container">
+            className="nav-bar__container border-bottom border-dark">
             {/* <div 
                 id="navbar-logo" 
                 onClick={() => { navigate("/") }}
@@ -23,12 +23,12 @@ const NavBar = () => {
                     src={"/logo.png"}
                     alt={"logo"}/>
             </div> */}
-            <div className = 'nav-bar__links-div'>
-                <div className = 'nav-bar__link' onClick={() => { navigate("/")}} > Home </div>
-                <div className = 'nav-bar__link' onClick={() => { navigate("/search")}} > Search </div>
-                <div className = 'nav-bar__link'onClick={() => { navigate("/inventory")}}> Inventory </div>
-                <div className = 'nav-bar__link'onClick={() => { navigate("/feasible_cocktails")}}> Feasible Cocktails </div>
-                <div className = 'nav-bar__link'onClick={() => { navigate("/guides")}}> Guides </div>
+            <div className = 'nav-bar__links-div' >
+                <div className = 'nav-bar__link p-2' onClick={() => { navigate("/")}} > Home </div>
+                <div className = 'nav-bar__link p-2' onClick={() => { navigate("/search")}} > Search </div>
+                <div className = 'nav-bar__link p-2'onClick={() => { navigate("/inventory")}}> Inventory </div>
+                <div className = 'nav-bar__link p-2'onClick={() => { navigate("/feasible_cocktails")}}> Feasible Cocktails </div>
+                <div className = 'nav-bar__link p-2'onClick={() => { navigate("/guides")}}> Guides </div>
             </div>
         </div>
     )

@@ -28,34 +28,36 @@ const CocktailPage = () => {
   }, []);
 
   return (
-    <div>
-      <h1 className='mt-5'> {cocktail.name} </h1>
-      
-      <div className='font-weight-bold'>Ingredients</div>
-
-      <div style={{ whiteSpace: 'pre-line' }}>
-        <ul>
-          {cocktail.recipe.split('\n').map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-
-      
-      <h4>Steps</h4>
-        <ol>
-          {/* add some info to DB */}
-          <li>{cocktail.shaken} Shake the ingredients </li>
-          <li>Serve {cocktail.served} in a {cocktail.glassware}</li>
-          <li>Garnish: </li>
-        </ol>
+    <div className="row pt-5">
+      <div class="col-md-8 offset-md-2 border">
+        <h1> {cocktail.name} </h1>
         
+        <p><strong>Ingredients</strong></p>
 
-      <h4>Cocktail Fun Facts</h4>
-      <p>{cocktail.story}</p>
-      <p>Cocktail Family:</p>
-      <p>Similar Cocktails / Variations:</p>
-      
+        <div style={{ whiteSpace: 'pre-line' }}>
+          <ul>
+            {cocktail.recipe.split('\n').map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        
+        <p><strong>Steps</strong></p>
+          <ol>
+            {/* add some info to DB */}
+            <li>{cocktail.shaken} Shake the ingredients </li>
+            <li>Serve {cocktail.served} in a {cocktail.glassware}</li>
+            <li>Garnish: </li>
+          </ol>
+          
+
+        <h4>Fun Facts</h4>
+        <p>{cocktail.story}</p>
+        <p>Cocktail Family:</p>
+        <p>Similar Cocktails / Variations:</p>
+        
+      </div>
     </div>
   )
 }

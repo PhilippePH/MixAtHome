@@ -46,6 +46,24 @@ function cocktailRoutes(app) {
     }
   })
 
+  // Search a cocktail
+  app.get('/cocktails/search/:input', async(req, res) => {
+    try{
+      const {input} = req.params
+      const queryInput = `${input}`
+      console.log(queryInput)
+      const results = await pool.query(
+        `SELECT * 
+         FROM cocktails c
+         WHERE UPPER(name) LIKE UPPER($1)`,
+        [queryInput]
+      )
+      console.log(results.rows)
+      res.json(results.rows[0])
+    } catch (err) {
+      console.error(err.message)
+    }
+  })
 
   // app.put("/cocktails/:id", async (req, res) => {
   //   try{

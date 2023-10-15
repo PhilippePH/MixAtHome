@@ -47,6 +47,7 @@ const InventoryPage = () => {
   return (
     <div className="Search">
       <h1 className='text-center mt-5'> Inventory </h1>
+      <p> add a remove all / add all button. also make the tables aligned</p>
       <table className="table mt-5 text-center">
         <thead>
           <tr>
