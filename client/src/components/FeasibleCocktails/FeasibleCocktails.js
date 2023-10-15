@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const FeasibleCocktails = () => {
   const navigate = useNavigate();
 
-  const handleClick = (id) => {
+  const openCocktailPage = (id) => {
     navigate(`/cocktails/${id}`, {replace: true});
   };
 
@@ -27,29 +27,23 @@ const FeasibleCocktails = () => {
   }, []);
 
   return (
-    <Fragment className="Feasible Cocktails">
-      <p> make the display more tiles, so that you can see multiple on one line</p>
+    <Fragment>
       <h1 className='text-center mt-5'> Feasible Cocktails </h1>
-      <table class="table mt-5 text-center">
-        {/* <thead>
-          <tr>
-            <th>Cocktail</th>
-          </tr>
-        </thead> */}
-        <tbody>
-          {cocktails.map(cocktail =>(
-            <tr key={cocktail.id}>
-              <td>
-                <div>
-                  <button type="button" class="btn btn-light btn-lg w-100"
-                  onClick={() => handleClick(cocktail.id)}>
-                    {cocktail.name}</button>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="container pt-5">
+        <div className="row">
+          { cocktails.map(cocktail => (
+            <div className="col-md-4 p-1" key={cocktail.id}>
+              <button 
+                type="button" 
+                className="btn btn-light btn-lg w-100" 
+                onClick={() => openCocktailPage(cocktail.id)}>
+                {cocktail.name}
+              </button>
+            </div>
+            )) 
+          }
+        </div>
+      </div>
     </Fragment>
   )
 }

@@ -51,7 +51,6 @@ function cocktailRoutes(app) {
     try{
       const {input} = req.params
       const queryInput = `%${input}%`
-      console.log(queryInput)
       const results = await pool.query(
         `SELECT * 
          FROM cocktails c

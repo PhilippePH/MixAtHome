@@ -79,6 +79,7 @@ const SearchPage = () => {
   return (
     <Fragment>
       <h1 className='text-center mt-5'> Search here </h1>
+      <p> add a clear search button</p>
       <div className="container">
         <div className="row">
           <div className="col" />
@@ -106,31 +107,27 @@ const SearchPage = () => {
           </div>
         </div>
       </div>
-      <table className="table mt-5 text-center">
-        <thead>
-          <tr>
-            <th>Cocktail Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          { Array.isArray(cocktails) ? (
-            cocktails.map(cocktail => (
-            <tr key={cocktail.id}>
-              <td>
-                <button type="button" className="btn btn-light btn-lg w-100" onClick={() => openCocktailPage(cocktail.id)}>
-                  {cocktail.name}
-                </button>
-              </td>
-            </tr>
-            ))
-          ) : (
-            (
-            <tr>
-              <td>No cocktails found</td>
-            </tr>
-            ))}
-        </tbody>
-      </table>
+      <div className="container pt-5">
+        <div className="row">
+            { Array.isArray(cocktails) ? (
+              cocktails.map(cocktail => (
+                <div className="col-md-4 p-1" key={cocktail.id}>
+                  <button 
+                    type="button" 
+                    className="btn btn-light btn-lg w-100" 
+                    onClick={() => openCocktailPage(cocktail.id)}>
+                    {cocktail.name}
+                  </button>
+                </div>
+              ))
+            ) : (
+              (
+                <div className="col">
+                   <p>No cocktails found</p>
+                </div>
+              ))}
+          </div>
+        </div>
     </Fragment>
   );
 };
