@@ -58,8 +58,7 @@ function cocktailRoutes(app) {
          WHERE UPPER(name) LIKE UPPER($1)`,
         [queryInput]
       )
-      console.log(results.rows)
-      res.json(results.rows[0])
+      res.json(results.rows)
     } catch (err) {
       console.error(err.message)
     }
