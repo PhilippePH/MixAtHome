@@ -50,7 +50,7 @@ function cocktailRoutes(app) {
   app.get('/cocktails/search/:input', async(req, res) => {
     try{
       const {input} = req.params
-      const queryInput = `${input}`
+      const queryInput = `%${input}%`
       console.log(queryInput)
       const results = await pool.query(
         `SELECT * 
