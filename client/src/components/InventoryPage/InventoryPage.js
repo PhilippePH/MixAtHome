@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import NavBar from "../NavBar/NavBar";
 
 const InventoryPage = () => {
   const [in_stock, set_in_stock] = useState([])
@@ -9,7 +10,7 @@ const InventoryPage = () => {
     e.preventDefault();
     try {
       const value = {in_stock}
-      const response = await fetch(
+      await fetch(
         `http://localhost:5000/inventory/${id}`,
         {
           method: "PUT",
@@ -45,9 +46,10 @@ const InventoryPage = () => {
   }, []);
 
   return (
-    <div className="Search">
+    <Fragment>
+      <NavBar></NavBar>
       <h1 className='text-center mt-5'> Inventory </h1>
-      <p> add a remove all / add all button. also make the tables aligned</p>
+      <p> add a remove all / add all button.</p>
       <table className="table mt-5 text-center">
         <thead>
           <tr>
@@ -93,7 +95,7 @@ const InventoryPage = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </Fragment>
   )
 }
 

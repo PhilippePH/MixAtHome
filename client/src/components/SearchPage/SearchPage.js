@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState, useRef } from 'react';
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import NavBar from "../NavBar/NavBar";
+
 
 const SearchPage = () => {
   const navigate = useNavigate();
@@ -78,6 +80,7 @@ const SearchPage = () => {
 
   return (
     <Fragment>
+      <NavBar></NavBar>
       <h1 className='text-center mt-5'> Search here </h1>
       <p> add a clear search button</p>
       <div className="container">

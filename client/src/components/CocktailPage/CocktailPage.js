@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import NavBar from "../NavBar/NavBar";
+
 
 const CocktailPage = () => {
   const { id } = useParams();
@@ -28,7 +30,9 @@ const CocktailPage = () => {
   }, []);
 
   return (
-    <div className="row pt-5">
+    <Fragment>
+      <NavBar></NavBar>
+      <div className="row pt-5">
       <div class="col-md-8 offset-md-2 border">
         <h1> {cocktail.name} </h1>
         
@@ -58,7 +62,8 @@ const CocktailPage = () => {
         <p>Similar Cocktails / Variations:</p>
         
       </div>
-    </div>
+      </div>
+    </Fragment>
   )
 }
 

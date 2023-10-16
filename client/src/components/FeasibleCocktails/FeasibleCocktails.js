@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import NavBar from "../NavBar/NavBar";
+
 
 const FeasibleCocktails = () => {
   const navigate = useNavigate();
@@ -28,7 +30,8 @@ const FeasibleCocktails = () => {
 
   return (
     <Fragment>
-      <h1 className='text-center mt-5'> Feasible Cocktails </h1>
+      <NavBar></NavBar>
+      <h1 className='text-center mt-5'> Feasible Cocktails</h1>
       <div className="container pt-5">
         <div className="row">
           { cocktails.map(cocktail => (
